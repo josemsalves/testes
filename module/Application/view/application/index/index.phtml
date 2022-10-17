@@ -1,0 +1,20 @@
+<?php
+$form->setAttribute('action', $this->url('home'));
+$form->prepare();
+echo $this->form()->openTag($form);
+
+$blogspot = $form->get('blog-post');
+
+// The name and price can be rendered as regular elements:
+echo $this->formRow($blogspot->get('title'));
+
+// Categories are rendered as a collection:
+echo $this->formCollection($blogspot->get('tag'));
+
+
+
+// And finally, we render the CSRF and submit elements:
+
+echo $this->formElement($form->get('submit'));
+
+echo $this->form()->closeTag();
